@@ -1,0 +1,21 @@
+# Python packages for the backend (install inside backend/.venv):
+#     .venv/bin/python -m pip install -r requirements.txt
+# Exact versions: these are the ones tested on 2026-09-29 with Python 3.12.
+
+# --- Phase 3: data ingestion ---
+psycopg[binary]==3.3.6         # PostgreSQL driver; we write raw SQL, no ORM
+psycopg-pool==3.3.3            # keeps a few database connections open for the web server
+httpx==0.28.1                  # HTTP client for the Open-Meteo APIs
+APScheduler==3.11.3            # runs the hourly job
+pydantic-settings==2.15.0      # reads settings from the .env file
+
+# --- Phase 4: web API ---
+fastapi==0.141.1               # the web framework (Swagger docs at /docs)
+uvicorn[standard]==0.54.0      # the web server that runs FastAPI
+PyJWT==2.15.1                  # login tokens (JSON Web Tokens)
+bcrypt==5.0.0                  # password hashing
+email-validator==2.3.0         # checks email format (Pydantic EmailStr)
+python-multipart==0.0.32       # reads the login form
+
+# --- tests ---
+pytest==9.1.1

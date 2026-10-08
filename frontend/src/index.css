@@ -1,0 +1,70 @@
+/* Tailwind CSS v4: one import, plus our colours as theme tokens.
+   Every token below becomes a utility class, e.g. bg-page, text-ink-2, border-line. */
+@import "tailwindcss";
+
+@theme {
+  /* Plus Jakarta Sans, self-hosted (the @fontsource package, imported in main.jsx) */
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* page and text: a cool grey page with near-white cards */
+  --color-page: #eef1f6;        /* page background */
+  --color-surface: #fdfdfe;     /* cards and charts */
+  --color-ink: #0f1b2d;         /* main text */
+  --color-ink-2: #4b5565;       /* secondary text */
+  --color-muted: #6f7888;       /* labels, axis text */
+  --color-line: #e2e6ee;        /* hairlines and borders */
+  --color-navy: #0f2a44;        /* the "right now" panel and buttons */
+  --color-navy-2: #1d4471;      /* the lighter end of the panel's gradient */
+  --color-accent: #2f6be0;      /* the one accent: links, focus, the "Now" hour card */
+
+  /* one soft shadow, tinted navy (never pure black) */
+  --shadow-card: 0 1px 2px rgb(15 42 68 / 0.04), 0 10px 30px -14px rgb(15 42 68 / 0.18);
+
+  /* IMD warning levels: the status palette. Always shown WITH the level's name. */
+  --color-level-green: #0ca30c;
+  --color-level-yellow: #fab219;
+  --color-level-orange: #ec835a;
+  --color-level-red: #d03b3b;
+
+  /* chart series (validated for colour-blind safety) */
+  --color-rain: #2a78d6;
+  --color-temp: #eb6834;
+  --color-humid: #1baf7a;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+}
+
+/* numbers that line up in table columns */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Every card on the logged-in pages: one corner radius (20px) and one soft shadow.
+   Things inside a card use rounded-xl (12px), so the corners stay concentric. */
+@layer components {
+  .card {
+    border-radius: 20px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* The hour cards and the area list scroll sideways without a visible scrollbar. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Leaflet's popups use their own font; match the site. */
+.leaflet-container {
+  font-family: var(--font-sans);
+}
