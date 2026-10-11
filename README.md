@@ -17,9 +17,6 @@ The poster ended with three next steps. This project does all three:
 > Weather and air-quality data: **Open-Meteo.com** (CC BY 4.0). Map © OpenStreetMap contributors. The warnings are
 > generated automatically with simplified IMD-style thresholds and are **not official IMD warnings**.
 
-**Preparing for the viva?** [VIVA.md](VIVA.md) has the FDs and BCNF argument for every table, every significant query
-explained, the trigger walk-through and the questions we expect, with answers.
-
 ## Contents
 1. [Quick start: one command](#quick-start-one-command)
 2. [What's in the folder](#whats-in-the-folder)
